@@ -125,8 +125,7 @@ jobs:
       - name: Create Release
         if: |
           github.ref_name == 'main' &&
-          github.event_name == 'push' &&
-          github.repository == 'illusionyy/PS4-PS5-Game-Patch'
+          github.event_name == 'push'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -148,8 +147,7 @@ jobs:
       - name: Checkout website
         if: |
           github.ref_name == 'main' &&
-          github.event_name == 'push' &&
-          github.repository == 'illusionyy/PS4-PS5-Game-Patch'
+          github.event_name == 'push'
         uses: actions/checkout@main
         with:
           repository: illusionyy/legacy-website
@@ -157,8 +155,7 @@ jobs:
       - name: Run Website Workflow dispatch
         if: |
           github.ref_name == 'main' &&
-          github.event_name == 'push' &&
-          github.repository == 'illusionyy/PS4-PS5-Game-Patch'
+          github.event_name == 'push'
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_RUNNER }}
         run: gh workflow run jekyll.yml
